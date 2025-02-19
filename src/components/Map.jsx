@@ -7,6 +7,7 @@ import "leaflet/dist/leaflet.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
+
 const fireIcon = new L.Icon({
   iconUrl: "/flame.png",
   iconSize: [12, 12],
@@ -28,6 +29,9 @@ const countryCoordinates = [
   { name: "Central Africa", latMin: -10, latMax: 10, lngMin: 15, lngMax: 30 },
   { name: "European Countries", latMin: 35, latMax: 72, lngMin: -25, lngMax: 45 },
 ];
+
+
+
 
 const getCountry = (title, coordinates) => {
     for (let country of countryCoordinates) {
@@ -185,7 +189,7 @@ const Map = () => {
              );
            })}
          </MapContainer>
-      
+      {/*  */}
       <Footer mainText="Tracking Wildfires Across the Globe." />
     </div>
     </div>

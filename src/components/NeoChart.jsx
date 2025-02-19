@@ -117,7 +117,7 @@ const NeoChart = ({ neoData }) => {
   };
 
   return (
-    <div className="p-6 mt-5 bg-gray-900 text-white min-h-screen">
+    <div className="p-6  bg-gray-900 text-white min-h-screen">
       {/* Top Section with Counts & Filter */}
       <div className="flex flex-col mt-10  md:flex-row justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-center">Asteroid Data Insights 🚀</h1>

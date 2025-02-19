@@ -91,7 +91,14 @@ const AsteroidTracker = () => {
     }
   };
 
-  const applyFilters = (newFilters, selectedDate) => {
+const applyFilters = (newFilters, selectedDate) => {
+  if (!startDate || !endDate) {
+    toast.error("Please select a start and end date before applying filters.");
+    return;
+  }
+
+  // const applyFilters = (newFilters, selectedDate) => {
+    
     let filtered = neoData;
 
     if (selectedDate) {
@@ -135,16 +142,17 @@ const AsteroidTracker = () => {
   
 
 <div className="container mx-auto p-4 text-center">
-  <h1
-    className="text-2xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-wide text-purple-600"
-    style={{
-      textShadow: "2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white",
-      WebkitTextStrokeWidth: "2px",
-      WebkitTextStrokeColor: "white",
-    }}
-  >
-    Asteroid Explorer 🚀
-  </h1>
+<h1
+  className="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-wide text-purple-900 sm:text-blue-700"
+  style={{
+    textShadow: "1px 1px 0px white, -1px -1px 0px white, 1px -1px 0px white, -1px 1px 0px white",
+    WebkitTextStrokeWidth: "1px",
+    WebkitTextStrokeColor: "white",
+  }}
+>
+  Asteroid Explorer 🚀
+</h1>
+
 
   <NeoFilters
     onFilterChange={applyFilters}
@@ -168,7 +176,7 @@ const AsteroidTracker = () => {
           key={neo.id}
           className="transition-all duration-1000 ease-in-out transform"
           animate={{
-            scale: index === currentIndex ? 1.05 : 0.95,
+            scale: index === currentIndex ? 1.02 : 0.95,
             rotateY: index === currentIndex ? 0 : flip,
             opacity: 1,
             translateX: index < currentIndex ? -50 : index > currentIndex ? 50 : 0,
