@@ -70,7 +70,7 @@ const AsteroidTracker = () => {
 
     try {
       const response = await fetch(
-        `https://nasa-astronomy-backend.onrender.com/api/neo?startDate=${start}&endDate=${end}`
+        `https://nasa-backend-2can.onrender.com/api/neo?startDate=${start}&endDate=${end}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch Asteroid Data");

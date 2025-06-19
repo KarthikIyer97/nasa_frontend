@@ -65,7 +65,7 @@ const Map = () => {
     const fetchEvents = async () => {
       try {
         const response = await fetch(
-          "https://nasa-astronomy-backend.onrender.com/api/eonet"
+          "https://nasa-backend-2can.onrender.com/api/eonet"
         );
         if (!response.ok) throw new Error("Failed to fetch wildfire data");
 
@@ -171,7 +171,7 @@ const Map = () => {
 )}
        
          <MapContainer center={[10,0]} zoom={2} style={{ height: "100vh", width: "100%" }}>
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"  loading="laxy"/>
 
            {/* 🔥 Display Wildfire Markers */}
            {filteredEvents.map((event, index) => {

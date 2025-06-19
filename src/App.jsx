@@ -145,6 +145,7 @@ import AsteroidTracker from './components/AsteroidTracker';
 import Navbar from './components/Navbar'; // Ensure Navbar is imported
 import "./index.css";
 import Map from './components/Map';
+import MarsGallery from "./components/MarsGallery";
 
 const App = () => {
   return (
@@ -154,6 +155,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/asteroidtracker" element={<AsteroidTracker />} />
         <Route path="/map" element={<Map />} />
+        <Route path="/marsgallery" element={<MarsGallery />} />
       </Routes>
     </>
   );

@@ -12,6 +12,7 @@
   "dependencies": {
     "@chatscope/chat-ui-kit-react": "^2.0.3",
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
+    "@emailjs/browser": "^4.4.1",
     "@fontsource/roboto": "^5.1.0",
     "@heroicons/react": "^2.1.5",
     "@iconify/icons-mdi": "^1.2.48",
@@ -27,6 +28,7 @@
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.5.2",
     "react-icons": "^5.4.0",
     "react-leaflet": "^4.2.1",
     "react-leaflet-cluster": "^2.1.0",
