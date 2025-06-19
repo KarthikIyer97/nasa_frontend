@@ -34,7 +34,7 @@ const MarsGallery = () => {
       setLoading(true);
       try {
         const res = await axios.get(`https://nasa-backend-2can.onrender.com/api/marsphotos`, {
-          params: { sol: 1000}
+          params: { sol: 80}
         });
         setPhotos(res.data.photos.slice(0, 60));
       } catch {
@@ -179,14 +179,17 @@ const MarsGallery = () => {
 
     
 
-       <Footer mainText="🔴 Mars Rover Gallery | Powered by NASA API" subText="Built for astronomy enthusiasts." />
+       
 
       <style>{`
         .blinking-cursor { display: inline-block; width: 1ch; animation: blink 1s step-end infinite; }
         @keyframes blink { 50% { opacity: 0; } }
       `}</style>
+      <Footer className="bg-black text-white
+      " mainText="🔴 Mars Rover Gallery | Powered by NASA API" subText="Built for astronomy enthusiasts." />
       
     </div>
+    
   );
 };
 
