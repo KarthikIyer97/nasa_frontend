@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Navbar';
 import ContactForm from './ContactForm';
+import Footer from './Footer';
 
 const MarsGallery = () => {
   const [photos, setPhotos] = useState([]);
@@ -59,46 +60,48 @@ const MarsGallery = () => {
   const [mobileIdx, setMobileIdx] = useState(0);
   useEffect(() => {
     if (isMobile && photos.length) {
-      const iv = setInterval(() => setMobileIdx(i => (i + 1) % photos.length), 1000);
+      const iv = setInterval(() => setMobileIdx(i => (i + 1) % photos.length), 1400);
       return () => clearInterval(iv);
     }
   }, [isMobile, photos]);
 
+
+
   return (
-    <div className="min-h-screen flex flex-col text-white relative overflow-hidden">
-      {bgImages.map((img, i) => (
-        <motion.div
-          key={i}
-          className="absolute inset-0 bg-fixed bg-center bg-cover"
-          style={{ backgroundImage: `url(${img})` }}
-          initial={{ opacity: i === bgIndex ? 1 : 0 }}
-          animate={{ opacity: i === bgIndex ? 1 : 0 }}
-          transition={{ duration: 1 }}
-        />
-      ))}
+  <div
+    className="min-h-screen flex flex-col text-white relative overflow-hidden"
+    style={{
+      backgroundImage: `url(${bgImages[bgIndex]})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      transition: "background-image 1s ease-in-out",
+    }}
+  >
+
       <div className="absolute inset-0 bg-black bg-opacity-40" />
 
       <Navbar />
       <ToastContainer position="top-center" />
 
       <header className="pt-20 text-center px-4 z-10">
-        <motion.h1 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase text-cyan-400 drop-shadow-lg inline-block">
+        <motion.h1 className="text-2xl sm:text-5xl md:text-6xl font-bold uppercase text-cyan-400 drop-shadow-lg inline-block">
           <motion.span>{display}</motion.span><motion.span className="blinking-cursor">|</motion.span>
         </motion.h1>
         <motion.p
           className="mt-2 sm:mt-4 text-sm sm:text-base lg:text-lg text-gray-300 max-w-xl mx-auto"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           transition={{ delay: title.length * 0.2 + 0.5, duration: 1 }}
         >
-          Discover Mars through the eyes of Curiosity.
+          Discover Mars🪐 through the eyes of Curiosity.
         </motion.p>
       </header>
 
       
 
       <section className="mt-6 flex-grow px-4 z-10">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center uppercase tracking-wide">
+        <h2 className="text-xl sm:text-3xl font-semibold mb-4 text-center uppercase tracking-wide">
           Stunning Martian Captures
         </h2>
         <div className="relative overflow-hidden w-full">
@@ -108,9 +111,9 @@ const MarsGallery = () => {
             <motion.div
               key={`mobile-${mobileIdx}`}
               className="mx-auto w-64 border-4 rounded-lg bg-gray-900 shadow-lg border-cyan-400"
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.3 }}
               layout
             >
               <img
@@ -166,6 +169,7 @@ const MarsGallery = () => {
             </motion.div>
           )}
         </div>
+        
       </section>
 
         {/* EmailJS Contact Form */}
@@ -173,14 +177,15 @@ const MarsGallery = () => {
         <ContactForm />
       </section>
 
-      <footer className="text-center py-6 bg-black bg-opacity-90 text-gray-400 z-10">
-        <p>🔴 Mars Rover Gallery | Powered by NASA API</p>
-      </footer>
+    
+
+       <Footer mainText="🔴 Mars Rover Gallery | Powered by NASA API" subText="Built for astronomy enthusiasts." />
 
       <style>{`
         .blinking-cursor { display: inline-block; width: 1ch; animation: blink 1s step-end infinite; }
         @keyframes blink { 50% { opacity: 0; } }
       `}</style>
+      
     </div>
   );
 };

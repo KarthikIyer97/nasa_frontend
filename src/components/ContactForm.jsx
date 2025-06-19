@@ -100,7 +100,7 @@ const ContactForm = () => {
         >
             <Toaster />
             <motion.h2
-                className='my-8 text-center text-4xl font-semibold tracking-tighter'
+                className='my-8 text-center text-xl sm:text-lg md:text-4xl  font-semibold tracking-tighter'
                 variants={itemVariants}
             >
                  Let's Connect — Ask Me Anything About Space 🪐
